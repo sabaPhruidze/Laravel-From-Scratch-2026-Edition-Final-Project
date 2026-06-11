@@ -34,4 +34,4 @@
 # Tailwind Theme Setup And Initial UI
 
 - created beforehand btn and form css as well as imported them in app.css
-- created layout
+- created layout and nav bar
