@@ -30,3 +30,7 @@
 - Added relationships to the Idea model so each idea belongs to one user and can have many steps.
 - In idea factory wrote 4 columns fake values for test
 - made a test using factory and added fifth column with initial status
+
+# Tailwind Theme Setup And Initial UI
+
+- created beforehand btn and form css as well as imported them in app.css

@@ -19,7 +19,7 @@ class Idea extends Model
         'status'=> IdeaStatus::class, //enum შევქმენით, რომ status მნიშვნელობები არ ვწეროთ ყველგან უბრალო ტექსტად
     ];
     protected $attributes = [
-        'status' => IdeaStatus::PENDING, // initial status value
+        'status' => IdeaStatus::PENDING->value, // initial status value
     ];
     public function user(): BelongsTo //ეს idea ეკუთვნის ერთ user-ს.
     {
