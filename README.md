@@ -35,3 +35,5 @@
 
 - created beforehand btn and form css as well as imported them in app.css
 - created layout and nav bar
+- wrote initial routes of register and login
+- created register page
