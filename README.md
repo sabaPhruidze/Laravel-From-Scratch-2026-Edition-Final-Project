@@ -38,3 +38,6 @@
 - wrote initial routes of register and login
 - created register page
 - refactored register page
+- finished login page
+- did validation on register
+- Not writing bcrypt ,because in User model it is already written
