@@ -26,3 +26,4 @@
 - donwloaded mySQL database and connected to the project
 - added comuns in ideas table
 - configure global Eloquent model settings in AppServiceProvider
+- Added Idea model casts for links and status, created an IdeaStatus enum to manage allowed status values safely, and added a label method to display readable status text in the UI.
