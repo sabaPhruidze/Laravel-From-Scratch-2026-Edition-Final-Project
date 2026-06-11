@@ -22,4 +22,5 @@
 
 # Design Your Model Layer
 
-- creating models
+- creating model Idea
+- donwloaded mySQL database and connected to the project
