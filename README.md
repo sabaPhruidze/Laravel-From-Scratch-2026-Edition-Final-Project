@@ -27,3 +27,4 @@
 - added comuns in ideas table
 - configure global Eloquent model settings in AppServiceProvider
 - Added Idea model casts for links and status, created an IdeaStatus enum to manage allowed status values safely, and added a label method to display readable status text in the UI.
+- Added relationships to the Idea model so each idea belongs to one user and can have many steps.
