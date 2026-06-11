@@ -24,3 +24,4 @@
 
 - creating model Idea
 - donwloaded mySQL database and connected to the project
+- added comuns in ideas table
