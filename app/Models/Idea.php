@@ -18,6 +18,9 @@ class Idea extends Model
         'links' => AsArrayObject::class,   // database-იდან წამოღებული მონაცემები როგორ ფორმატში მოგვცეს
         'status'=> IdeaStatus::class, //enum შევქმენით, რომ status მნიშვნელობები არ ვწეროთ ყველგან უბრალო ტექსტად
     ];
+    protected $attributes = [
+        'status' => IdeaStatus::PENDING, // initial status value
+    ];
     public function user(): BelongsTo //ეს idea ეკუთვნის ერთ user-ს.
     {
         return $this->belongsTo(User::class);
