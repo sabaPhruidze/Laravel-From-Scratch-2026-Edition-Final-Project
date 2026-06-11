@@ -37,3 +37,4 @@
 - created layout and nav bar
 - wrote initial routes of register and login
 - created register page
+- refactored register page
