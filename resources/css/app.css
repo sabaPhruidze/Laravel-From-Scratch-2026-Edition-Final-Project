@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
 @import "./components/btn.css" layer(components);
+/* layer(components) გეხმარება მართო, თუ რომელი CSS წესები "გაიმარჯვებს" კონფლიქტის დროს.
+ლეიერების გამოყენებით, შენ შეგიძლია განსაზღვრო, რომ მაგალითად, reset ლეიერი ყოველთვის უფრო სუსტი იყოს, ვიდრე components ლეიერი, არ აქვს მნიშვნელობა, რომელ ფაილს სად წერ კოდში.
+*/
 @import "./components/form.css" layer(components);
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
