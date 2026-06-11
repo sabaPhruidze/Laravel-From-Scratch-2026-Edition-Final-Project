@@ -19,3 +19,7 @@
   **composer run format** by this both code will run
 - CodeRabbit არის AI code reviewer (priced)
 - installed laravel boost
+
+# Design Your Model Layer
+
+- creating models
