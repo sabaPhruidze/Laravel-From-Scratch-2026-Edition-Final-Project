@@ -44,3 +44,14 @@
 - added middleware on login ,register and log out buttons
 - wrote code for log out
 - did validation on register
+
+# Browser Testing Registration Forms With Pest
+
+- **composer require pestphp/pest --dev --with-all-dependencies**
+- **vendor\bin\pest --init**
+- **composer require pestphp/pest-plugin-browser:^4.0 --dev**
+- **npm install playwright@latest**
+- **npx playwright install**
+- By all this installed Pest and now testing code in RegisterTest
+- php artisan test tests\Browser\RegisterTest.php checking here
+- tested login , logout and register
