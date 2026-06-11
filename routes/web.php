@@ -8,7 +8,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/register',[RegisteredUserController::class,'create']);
-Route::post('/register',[RegisteredUserController::class,'store']);
-Route::get('/login',[SessionsController::class,'create']);
-Route::post('/login',[SessionsController::class,'store']);
+Route::middleware('guest')->group(function(){
+    Route::get('/register',[RegisteredUserController::class,'create']);
+    Route::post('/register',[RegisteredUserController::class,'store']);
+
+    Route::get('/login',[SessionsController::class,'create']);
+    Route::post('/login',[SessionsController::class,'store']);
+});
+
+
+Route::delete('/logout',[SessionsController::class,'destroy'])->middleware('auth');

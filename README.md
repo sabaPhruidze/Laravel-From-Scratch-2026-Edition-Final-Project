@@ -41,3 +41,5 @@
 - finished login page
 - did validation on register
 - Not writing bcrypt ,because in User model it is already written
+- added middleware on login ,register and log out buttons
+- wrote code for log out
