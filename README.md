@@ -71,3 +71,5 @@
 - homepage what redireted to /idea page
 - used middleware for pages that must be shown after authentification
 - created Idea controller for index to display
+- created card component and styled it
+- learned how to add already created classes additional classes using .=
