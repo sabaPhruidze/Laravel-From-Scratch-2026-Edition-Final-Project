@@ -66,3 +66,8 @@
 - using alpine.js the message will appeal immediatelly when someone logs in and will dissapear in 3 seconds
 
 # Idea Cards
+
+- corrected possible issues
+- homepage what redireted to /idea page
+- used middleware for pages that must be shown after authentification
+- created Idea controller for index to display
