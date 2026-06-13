@@ -62,3 +62,5 @@
 - Alpinejs is used for making message dissapear when necessary . React and vue is bigger than alpinejs . This is a javascript library better than jquery
 - Added a session flash message after successful login. When the user logs in successfully, the application redirects them to the intended page and displays a one-time success message: "You are now logged in.
 - **npm install alpinejs**
+- did data banding using alpinejs
+- using alpine.js the message will appeal immediatelly when someone logs in and will dissapear in 3 seconds
