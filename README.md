@@ -75,3 +75,7 @@
 - learned how to add already created classes additional classes using .=
 
 # Idea Filtering
+
+- added route through query to filter with status
+- added revelant buttons for filter
+- 

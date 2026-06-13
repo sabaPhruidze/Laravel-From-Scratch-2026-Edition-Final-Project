@@ -4,6 +4,17 @@
         <h1 class="text-3xl font-bold">Ideas</h1>
         <p class="text-muted-foreground text-sm mt-2">Capture your thoughts . Make a plan</p>
       </header>
+      <div>
+        <a href="/ideas/?status=pending" class="btn {{request('status') === 'pending' ? '' : 'btn-outlined'}}">
+          pending
+        </a>
+         <a href="/ideas/?status=in_progress" class="btn {{request('status') === 'in_progress' ? '' : 'btn-outlined'}}">
+          In progress
+        </a>
+         <a href="/ideas/?status=completed" class="btn {{request('status') === 'completed' ? '' : 'btn-outlined'}}">
+          Completed
+        </a>
+      </div>
       <div class="mt-10 text-muted-foreground">
        <div class="grid md:grid-cols-2 gap-6">
          @forelse($ideas as $idea)
