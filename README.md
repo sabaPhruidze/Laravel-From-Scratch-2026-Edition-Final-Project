@@ -61,4 +61,4 @@
 - flash messages is a short message f.e you succesfully logged in or something like that. it only exists on **next request** so it will appeal only after login and on refresh it will dissapear
 - Alpinejs is used for making message dissapear when necessary . React and vue is bigger than alpinejs . This is a javascript library better than jquery
 - Added a session flash message after successful login. When the user logs in successfully, the application redirects them to the intended page and displays a one-time success message: "You are now logged in.
--
+- **npm install alpinejs**
