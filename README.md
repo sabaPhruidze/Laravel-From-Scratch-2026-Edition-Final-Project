@@ -78,4 +78,5 @@
 
 - added route through query to filter with status
 - added revelant buttons for filter
-- 
+- refactored index page to be written less code
+- will add a counter of how many ideas is there by the status
