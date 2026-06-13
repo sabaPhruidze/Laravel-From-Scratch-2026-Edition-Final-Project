@@ -73,3 +73,5 @@
 - created Idea controller for index to display
 - created card component and styled it
 - learned how to add already created classes additional classes using .=
+
+# Idea Filtering
