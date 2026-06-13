@@ -20,8 +20,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Model::unguard(); //ხსნის დაცვას
+        Model::unguard(); // ხსნის დაცვას
         Model::shouldBeStrict(); // შეცდომაზე გვიგდებს exception_ს
-        Model::automaticallyEagerLoadRelationships();// ავტომატურად ოპტიმიზაციას უკეთებს მონაცემების წამოღებას.
+        Model::automaticallyEagerLoadRelationships(); // ავტომატურად ოპტიმიზაციას უკეთებს მონაცემების წამოღებას.
     }
 }

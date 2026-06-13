@@ -80,3 +80,5 @@
 - added revelant buttons for filter
 - refactored index page to be written less code
 - will add a counter of how many ideas is there by the status
+- wrote logic for filtering and writing count of each status. especially what to show when concrete status has 0 idea
+- in case status is something different from enum I wrote code for it
