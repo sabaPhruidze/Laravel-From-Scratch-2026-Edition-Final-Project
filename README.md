@@ -82,3 +82,10 @@
 - will add a counter of how many ideas is there by the status
 - wrote logic for filtering and writing count of each status. especially what to show when concrete status has 0 idea
 - in case status is something different from enum I wrote code for it
+
+# Show A Single Idea
+
+- created show page, for individual ideas
+- added arrow icon
+- added edit and delete button
+- created form for delete button and relevant logic
