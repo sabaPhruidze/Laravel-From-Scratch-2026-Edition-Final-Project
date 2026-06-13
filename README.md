@@ -64,3 +64,5 @@
 - **npm install alpinejs**
 - did data banding using alpinejs
 - using alpine.js the message will appeal immediatelly when someone logs in and will dissapear in 3 seconds
+
+# Idea Cards
