@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreIdeaRequest;
 use App\Http\Requests\UpdateIdeaRequest;
+use App\IdeaStatus;
 use App\Models\Idea;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,11 +16,11 @@ class IdeaController extends Controller
      */
     public function index(Request $request)
     {
-        $user = $request->user();
+        $user = Auth::user();
 
-        $ideas = $user
-            ->ideas()
-            ->when($request->filled('status'), fn ($query) => $query->where('status', $request->input('status')))
+        $ideas = Idea::where('user_id', $user->id)
+            ->when(IdeaStatus::tryFrom($request->status), fn ($query) => $query
+            ->where('status', $request->status))
             ->get();
 
         return view('ideas.index', [
@@ -41,7 +42,7 @@ class IdeaController extends Controller
      */
     public function store(StoreIdeaRequest $request)
     {
-        //
+        dd('persist the idea');
     }
 
     /**

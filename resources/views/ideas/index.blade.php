@@ -41,7 +41,19 @@
       </div>
       <!-- modal -->
       <x-modal name="create-idea" title="New Idea">
-      <p>slot content here</p>
+       <form method="POST" action="{{route('ideas.store')}}">
+        @csrf
+        <div class="space-y-6">
+          <x-form.field 
+          label="Title"
+          name="title"
+          placeholder="Enter an idea for your title"
+          autofocus
+          >
+
+          </x-form.field>
+        </div>
+       </form>
       </x-modal>
     </div>
 </x-layout>

@@ -100,3 +100,7 @@
 - added removing of modal by clicking outside the modal or on esc
 - before modal would pop up every start and on refresh only few milliseconds,it's corrected by writing **style="display:none"**
 - refactored modal and added relevant attributes for accesability
+
+# Construct The Idea Form
+- create a route of idea store
+- added form for adding ideas in index page
