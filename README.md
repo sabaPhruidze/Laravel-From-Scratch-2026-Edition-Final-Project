@@ -109,3 +109,8 @@
 - designed the modal for creating
 - added creating button and both close and create buttom works
 - latest data will be shown on top
+
+# Test The Create Idea Form
+
+- add test attribute on 2 places and mainly will test index component
+-

@@ -8,6 +8,7 @@
         @click="$dispatch('open-modal','create-idea')"
         is="button" 
         type="button"
+        data-test="create-idea-button"
         class="mt-10 cursor-pointer h-32 w-full text-left"
         >
            <p>What's the idea?</p>
@@ -55,7 +56,7 @@
             <label for="status" class="label">Status</label>
             <div class="flex gap-x-3">
               @foreach (App\IdeaStatus::cases() as $status)
-                <button type="button" @click="status = @js($status->value)" class="btn flex-1 h-10" :class="status===@js($status->value) ? '' : 'btn-outlined'">{{$status->label()}}</button>
+                <button type="button" @click="status = @js($status->value)" class="btn flex-1 h-10" :class="status===@js($status->value) ? '' : 'btn-outlined'" data-test="button-status-{{$status->value}}">{{$status->label()}}</button>
 
               @endforeach
               <input 
