@@ -22,6 +22,23 @@
     <x-card class="mt-6">
         <div class="text-foreground max-w-none cursor-pointer">{{$idea->description}}</div>
     </x-card>
+    @if ($idea->steps->count())
+        <div>
+            <h3 class="font-bold text-xl mt-6">Actionable Steps</h3>
+            <div>
+                @foreach ($idea->steps as $step)
+                
+                <x-card :href="$step" class="text-primary font-medium flex gap-x-3 items-center">
+                 <div class="flex items-center gap-x-3">
+                    <button>Checkmark status</button>
+                    <span>{{$step->description}}</span>
+                 </div>
+                </x-card>
+                @endforeach
+        </div>
+    </div>
+    @endif
+
     @if ($idea->links?->count())
     <div>
         <h3 class="font-bold text-xl mt-6">Links</h3>

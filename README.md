@@ -116,3 +116,9 @@
 - added style and functionally working using alpinejs
 - added link removing button
 - tested in createIdeaTest how it works
+
+# Actionable Steps
+
+- copied the link part in index and wrote same for steps
+- alpine.js devtools
+-

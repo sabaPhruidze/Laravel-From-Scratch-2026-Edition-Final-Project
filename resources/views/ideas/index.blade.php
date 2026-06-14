@@ -45,7 +45,9 @@
        <form x-data="{
         status: 'pending',
         newLink: '',
-        links: []
+        links: [],
+        newStep: '',
+        steps: [],
         }" method="POST" action="{{route('ideas.store')}}">
         @csrf
         <div class="space-y-6">
@@ -72,11 +74,55 @@
             <x-form.error name="status"/>
           </div>
           <x-form.field 
-          label="Description"
-          name="description"
-          type="textarea"
-          placeholder="Describe your idea..."
+           label="Description"
+           name="description"
+           type="textarea"
+           placeholder="Describe your idea..."
           />
+
+
+          <div>
+            <fieldset class="space-y-3">
+              <legend class="label">Actionable Steps</legend>
+              <template x-for="(step,index) in steps" :key="step">
+                <div class="flex gap-x-2 items-center">
+                  <input name="steps[]" x-model="step" class="input">
+                  
+                <button 
+                 type="button" 
+                 aria-label="remove step"
+                 @click="steps.splice(index,1)"
+                 class="form-muted-icon"
+                >
+                  <x-icons.close/>
+                </button>
+                </div>
+              </template>
+
+              <div class="flex gap-x-2 items-center">
+                <input 
+                x-model="newStep"
+                data-test="new-step"
+                id="new-step"
+                placeholder="What needs to be done?"
+                class="input flex-1"
+                spellcheck="false"
+                >
+                
+                <button 
+                type="button" 
+                @click="steps.push(newStep.trim()); newStep=''"
+                :disabled="newStep.trim().length === 0"
+                aria-label="Add link button"
+                class="form-muted-icon"
+                data-test="submit-new-link-button"
+                >
+                  <x-icons.close class="rotate-45"/>
+                </button>
+              </div>
+
+            </fieldset>
+          </div>
           <div>
             <fieldset class="space-y-3">
               <legend class="label">Links</legend>
