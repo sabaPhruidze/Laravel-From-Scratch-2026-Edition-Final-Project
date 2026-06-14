@@ -96,3 +96,7 @@
 
 - made one card in index to be button
 - created modal and it open's on click
+- using alpinejs make modal animated
+- added removing of modal by clicking outside the modal or on esc
+- before modal would pop up every start and on refresh only few milliseconds,it's corrected by writing **style="display:none"**
+- refactored modal and added relevant attributes for accesability

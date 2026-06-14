@@ -7,8 +7,8 @@
         x-data
         @click="$dispatch('open-modal','create-idea')"
         is="button" 
+        type="button"
         class="mt-10 cursor-pointer h-32 w-full text-left"
-        
         >
            <p>What's the idea?</p>
         </x-card>
@@ -40,15 +40,8 @@
        </div>
       </div>
       <!-- modal -->
-       <div 
-       class="flex fixed inset-0 z-50 items-center justify-center bg-black/50 backdrop-blur-xs"
-       x-data="{show:false}"
-       x-show="show"
-       @open-modal.window="alert('text')"
-       >
-        <x-card>
-          <p>I am a model</p>
-        </x-card>
-       </div>
+      <x-modal name="create-idea" title="New Idea">
+      <p>slot content here</p>
+      </x-modal>
     </div>
 </x-layout>
