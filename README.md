@@ -113,4 +113,3 @@
 # Test The Create Idea Form
 
 - add test attribute on 2 places and mainly will test index component
--
