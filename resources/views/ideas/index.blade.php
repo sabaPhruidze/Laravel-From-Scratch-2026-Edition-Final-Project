@@ -42,7 +42,11 @@
       </div>
       <!-- modal -->
       <x-modal name="create-idea" title="New Idea">
-       <form x-data="{status: 'pending'}" method="POST" action="{{route('ideas.store')}}">
+       <form x-data="{
+        status: 'pending',
+        newLink: '',
+        links: []
+        }" method="POST" action="{{route('ideas.store')}}">
         @csrf
         <div class="space-y-6">
           <x-form.field 
@@ -78,6 +82,7 @@
               <legend class="label"></legend>
               <div class="flex gap-x-2 items-center">
                 <input 
+                x-model="newLink"
                 type="text"
                 id="new-link"
                 placeholder="http://example.com"
@@ -85,10 +90,13 @@
                 class="input flex-1"
                 spellcheck="false"
                 >
-                <button type="button">
+                <button type="button" @click="links.push(newLink); newLink=''">
                   <x-icons.close class="rotate-45"/>
                 </button>
               </div>
+              <pre x-text="JSON.stringify(links)">
+
+              </pre>
             </fieldset>
           </div>
            <div class="flex justify-end gap-x-5">
