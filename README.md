@@ -91,3 +91,8 @@
 - created form for delete button and relevant logic
 - added all information on each page
 - make sure it will display 2 or more links
+
+# Create A Functional Modal With AlpineJS
+
+- made one card in index to be button
+- created modal and it open's on click

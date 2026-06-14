@@ -3,6 +3,15 @@
       <header class="py-8 md:py-12">
         <h1 class="text-3xl font-bold">Ideas</h1>
         <p class="text-muted-foreground text-sm mt-2">Capture your thoughts . Make a plan</p>
+        <x-card 
+        x-data
+        @click="$dispatch('open-modal','create-idea')"
+        is="button" 
+        class="mt-10 cursor-pointer h-32 w-full text-left"
+        
+        >
+           <p>What's the idea?</p>
+        </x-card>
       </header>
       <div>
         <a href="/ideas" class="btn {{request()->has('status') ? 'btn-outlined' : ''}}">All</a>
@@ -30,5 +39,16 @@
         @endforelse
        </div>
       </div>
+      <!-- modal -->
+       <div 
+       class="flex fixed inset-0 z-50 items-center justify-center bg-black/50 backdrop-blur-xs"
+       x-data="{show:false}"
+       x-show="show"
+       @open-modal.window="alert('text')"
+       >
+        <x-card>
+          <p>I am a model</p>
+        </x-card>
+       </div>
     </div>
 </x-layout>
