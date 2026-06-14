@@ -79,7 +79,10 @@
           />
           <div>
             <fieldset class="space-y-3">
-              <legend class="label"></legend>
+              <legend class="label">Links</legend>
+              <template x-for="link in links">
+                <input type="text" name="links[]" x-model="link">
+              </template>
               <div class="flex gap-x-2 items-center">
                 <input 
                 x-model="newLink"
@@ -90,7 +93,11 @@
                 class="input flex-1"
                 spellcheck="false"
                 >
-                <button type="button" @click="links.push(newLink); newLink=''">
+                <button 
+                type="button" 
+                @click="links.push(newLink.trim()); newLink=''"
+                :disabled="newLink.trim().length === 0"
+                >
                   <x-icons.close class="rotate-45"/>
                 </button>
               </div>
