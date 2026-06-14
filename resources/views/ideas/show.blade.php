@@ -28,11 +28,15 @@
             <div>
                 @foreach ($idea->steps as $step)
                 
-                <x-card :href="$step" class="text-primary font-medium flex gap-x-3 items-center">
+                <x-card is="div">
+                 <form method="POST" action="{{ route('step.update', $step) }}">
+                 @csrf
+                 @method('PATCH')
                  <div class="flex items-center gap-x-3">
-                    <button>Checkmark status</button>
-                    <span>{{$step->description}}</span>
+                    <button class="size-5 flex items-center justify-center rounded-lg text-primary-foreground border border-primary" type="submit" role="checkbox" aria-checked="{{ $step->completed ? 'true' : 'false' }}"></button>
+                    <span class="{{ $step->completed ? 'line-through text-muted-foreground' : '' }}">{{ $step->description }}</span>
                  </div>
+                 </form>
                 </x-card>
                 @endforeach
         </div>

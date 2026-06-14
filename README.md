@@ -121,4 +121,4 @@
 
 - copied the link part in index and wrote same for steps
 - alpine.js devtools
--
+- actions will be with an checkbox so done or not will be written there
