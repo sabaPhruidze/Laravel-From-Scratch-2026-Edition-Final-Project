@@ -89,3 +89,5 @@
 - added arrow icon
 - added edit and delete button
 - created form for delete button and relevant logic
+- added all information on each page
+- make sure it will display 2 or more links
