@@ -13,7 +13,7 @@
            <p>What's the idea?</p>
         </x-card>
       </header>
-      <div>
+      <div class="space-y-2">
         <a href="/ideas" class="btn {{request()->has('status') ? 'btn-outlined' : ''}}">All</a>
        @foreach (App\IdeaStatus::cases() as $status)
           <a href="/ideas/?status={{$status->value}}" class="btn {{request('status') === $status->value ? '' : 'btn-outlined'}}">
@@ -41,7 +41,7 @@
       </div>
       <!-- modal -->
       <x-modal name="create-idea" title="New Idea">
-       <form method="POST" action="{{route('ideas.store')}}">
+       <form x-data="{status: 'pending'}" method="POST" action="{{route('ideas.store')}}">
         @csrf
         <div class="space-y-6">
           <x-form.field 
@@ -49,10 +49,36 @@
           name="title"
           placeholder="Enter an idea for your title"
           autofocus
-          >
+          required
+          />
+          <div>
+            <label for="status" class="label">Status</label>
+            <div class="flex gap-x-3">
+              @foreach (App\IdeaStatus::cases() as $status)
+                <button type="button" @click="status = @js($status->value)" class="btn flex-1 h-10" :class="status===@js($status->value) ? '' : 'btn-outlined'">{{$status->label()}}</button>
 
-          </x-form.field>
+              @endforeach
+              <input 
+              type="hidden" 
+              name="status" :value="status" 
+              class="input"
+              >
+            </div>
+            <x-form.error name="status"/>
+          </div>
+          <x-form.field 
+          label="Description"
+          name="description"
+          type="textarea"
+          placeholder="Describe your idea..."
+          
+          />
+           <div class="flex justify-end gap-x-5">
+            <button type="button" @click="$dispatch('close-modal')">Cancel</button>
+            <button type="submit" class="btn">Create</button>
+           </div>
         </div>
+       
        </form>
       </x-modal>
     </div>

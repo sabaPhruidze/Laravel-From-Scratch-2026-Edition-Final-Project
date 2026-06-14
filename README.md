@@ -102,5 +102,10 @@
 - refactored modal and added relevant attributes for accesability
 
 # Construct The Idea Form
+
 - create a route of idea store
 - added form for adding ideas in index page
+- added close icon
+- designed the modal for creating
+- added creating button and both close and create buttom works
+- latest data will be shown on top
