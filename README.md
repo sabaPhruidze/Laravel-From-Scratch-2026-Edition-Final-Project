@@ -113,3 +113,6 @@
 # Test The Create Idea Form
 
 - add test attribute on 2 places and mainly will test index component
+- added style and functionally working using alpinejs
+- added link removing button
+- tested in createIdeaTest how it works

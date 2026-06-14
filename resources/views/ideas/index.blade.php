@@ -80,30 +80,47 @@
           <div>
             <fieldset class="space-y-3">
               <legend class="label">Links</legend>
-              <template x-for="link in links">
-                <input type="text" name="links[]" x-model="link">
+              <template x-for="(link,index) in links" :key="link">
+                <div class="flex gap-x-2 items-center">
+                  <input name="links[]" x-model="link" class="input">
+                  
+                <button 
+                 type="button" 
+                 aria-label="remove link"
+                 @click="links.splice(index,1)"
+                 class="form-muted-icon"
+                >
+                  <x-icons.close/>
+                </button>
+                </div>
               </template>
+
               <div class="flex gap-x-2 items-center">
                 <input 
                 x-model="newLink"
-                type="text"
+                data-test="new-link"
+                type="url"
                 id="new-link"
                 placeholder="http://example.com"
                 autocomplete="url"
                 class="input flex-1"
                 spellcheck="false"
                 >
+                
                 <button 
                 type="button" 
                 @click="links.push(newLink.trim()); newLink=''"
                 :disabled="newLink.trim().length === 0"
+                aria-label="Add link button"
+                class="form-muted-icon"
+                data-test="submit-new-link-button"
                 >
                   <x-icons.close class="rotate-45"/>
                 </button>
               </div>
-              <pre x-text="JSON.stringify(links)">
-
-              </pre>
+              <!-- <pre x-text="JSON.stringify(links)">
+                in order to see beforehand what happens
+              </pre> -->
             </fieldset>
           </div>
            <div class="flex justify-end gap-x-5">
