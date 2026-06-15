@@ -129,4 +129,6 @@
 - image after uploading is saved in storage/app/ideas
 - each image will have unique name
 - shows in database that the image is added
-- 
+- storage is not accessable by the public folder
+- **php artisan storage:link** created sibling of storage in public folder
+- displays image when we have in cards of idea
