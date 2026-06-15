@@ -122,3 +122,11 @@
 - copied the link part in index and wrote same for steps
 - alpine.js devtools
 - actions will be with an checkbox so done or not will be written there
+
+# Upload Featured Images To Storage
+
+- index: added uploading input
+- image after uploading is saved in storage/app/ideas
+- each image will have unique name
+- shows in database that the image is added
+- 

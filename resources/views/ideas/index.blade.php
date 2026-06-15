@@ -43,12 +43,16 @@
       <!-- modal -->
       <x-modal name="create-idea" title="New Idea">
        <form x-data="{
-        status: 'pending',
-        newLink: '',
-        links: [],
-        newStep: '',
-        steps: [],
-        }" method="POST" action="{{route('ideas.store')}}">
+          status: 'pending',
+          newLink: '',
+          links: [],
+          newStep: '',
+          steps: [],
+          }" 
+          method="POST" 
+          action="{{route('ideas.store')}}"
+          enctype="multipart/form-data"
+        >
         @csrf
         <div class="space-y-6">
           <x-form.field 
@@ -57,13 +61,12 @@
           placeholder="Enter an idea for your title"
           autofocus
           required
-          />
-          <div>
+        />
+          <div class="flex flex-col gap-y-3">
             <label for="status" class="label">Status</label>
             <div class="flex gap-x-3">
               @foreach (App\IdeaStatus::cases() as $status)
                 <button type="button" @click="status = @js($status->value)" class="btn flex-1 h-10" :class="status===@js($status->value) ? '' : 'btn-outlined'" data-test="button-status-{{$status->value}}">{{$status->label()}}</button>
-
               @endforeach
               <input 
               type="hidden" 
@@ -80,6 +83,20 @@
            placeholder="Describe your idea..."
           />
 
+          <!-- images -->
+          <div class="space-y-2">
+            <label for="image" class="label">Featured image</label>
+            <input 
+             type="file" 
+             name="image" 
+             accept="images/*"
+             class="block w-full text-sm text-gray-700
+               file:mr-4 file:rounded-md file:border-0
+               file:bg-green-600 file:px-3 file:py-2
+               file:text-black hover:file:bg-green-700 cursor-pointer"
+             >
+            <x-form.error name="image"/>
+          </div>
 
           <div>
             <fieldset class="space-y-3">
