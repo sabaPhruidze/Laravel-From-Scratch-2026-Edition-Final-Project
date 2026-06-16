@@ -142,3 +142,6 @@
 - corrected IdeaTest file so now it shows the error for actions
 
 # Authorization Is A Requirement
+
+- added gate in ideaController and wrote method of it in ideapolicy
+- tried couple of ways how to write f.e using middleware
