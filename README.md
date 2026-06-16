@@ -145,3 +145,5 @@
 
 - added gate in ideaController and wrote method of it in ideapolicy
 - tried couple of ways how to write f.e using middleware
+
+# The Edit Idea Modal
