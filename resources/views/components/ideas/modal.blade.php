@@ -5,15 +5,19 @@
        <form x-data="{
           status: @js(old('status',$idea->status->value)),
           newLink: '',
-          links: [],
+          links: @js(old('links',$idea->links)) ?? [],
           newStep: '',
-          steps: [],
+          steps: @js(old('steps',$idea->steps->map(fn($step) => $step->description))),
           }" 
           method="POST" 
-          action="{{route('ideas.store')}}"
+          action="{{$idea->exists ? route('ideas.update',$idea) : route('ideas.store')}}"
           enctype="multipart/form-data"
         >
         @csrf
+
+        @if ($idea->exists)
+          @method('PATCH')
+        @endif
         <div class="space-y-6">
           <x-form.field 
           label="Title"
@@ -158,7 +162,7 @@
           </div>
            <div class="flex justify-end gap-x-5">
             <button type="button" @click="$dispatch('close-modal')">Cancel</button>
-            <button type="submit" class="btn">Create</button>
+            <button type="submit" class="btn">{{$idea->exists ? 'update' : 'create'}}</button>
            </div>
         </div>
        
