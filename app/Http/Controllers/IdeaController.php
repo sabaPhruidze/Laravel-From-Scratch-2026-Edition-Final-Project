@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\actions\CreateIdea;
 use App\Http\Requests\StoreIdeaRequest;
 use App\Http\Requests\UpdateIdeaRequest;
 use App\IdeaStatus;
@@ -44,14 +45,7 @@ class IdeaController extends Controller
     public function store(StoreIdeaRequest $request)
     {
      // dd($request->all());
-         $idea= Auth::user()->ideas()->create($request->safe()->except('steps','image'));
-        $idea->steps()->createMany(
-            collect($request->steps)->map(fn($step) => ['description' => $step])
-        );
-        $imagePath = $request->image->store('ideas','public');
-        $idea->update([
-            'image_path' =>$imagePath
-        ]);
+       (new CreateIdea)->handle($request->safe()->all());
         return to_route('ideas.index')->with('success','Idea created!');
     }
 

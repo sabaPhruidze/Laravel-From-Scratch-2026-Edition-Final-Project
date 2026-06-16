@@ -133,3 +133,8 @@
 - **php artisan storage:link** created sibling of storage in public folder
 - displays image when we have in cards of idea ,on individual page
 - displays image on cards list
+
+# action classes
+
+- goal is to make much readable the store part of ideacontroller
+- create action folder inside the app folder where I created CreateIdea file and moved store logic to there
