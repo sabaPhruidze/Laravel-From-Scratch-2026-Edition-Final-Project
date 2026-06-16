@@ -147,3 +147,7 @@
 - tried couple of ways how to write f.e using middleware
 
 # The Edit Idea Modal
+
+- IdeaTest file will consist code beforehand to check if there is an issue
+- refactored modal part,because same has to be used in create and change path
+-

@@ -3,7 +3,15 @@
        <div class="flex justify-between items-center">
          <a href="{{route('ideas.index')}}" class="flex items-center gap-x-2 text-sm font-medium"><x-icons.arrow-back/> Back to Ideas</a>
         <div class="gap-x-3 flex items-center">
-            <button class="btn btn-outlined"><x-icons.external/> Edit Idea</button>
+            <button 
+                x-data
+                class="btn btn-outlined" 
+                data="edit-idea-button"
+                @click="$dispatch('open-modal','create-idea')"
+            >
+                <x-icons.external/>
+                 Edit Idea
+            </button>
            <form method="POST" action="{{route('ideas.destroy',$idea)}}">
             @csrf
             @method('DELETE')
@@ -64,4 +72,5 @@
     </div>
     @endif
    </div>
+   <x-ideas.modal/>
 </x-layout>
