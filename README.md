@@ -150,4 +150,5 @@
 
 - IdeaTest file will consist code beforehand to check if there is an issue
 - refactored modal part,because same has to be used in create and change path
--
+- now in modal it correctly distingusish edit and create idea
+- made sure that input will display the value from attribute

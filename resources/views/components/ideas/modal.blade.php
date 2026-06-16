@@ -1,4 +1,7 @@
- <x-modal name="create-idea" title="New Idea">
+@props(['idea' => new App\Models\Idea()])
+
+
+<x-modal name="{{$idea->exists ? 'edit-idea' : 'create-idea'}}" title="{{$idea->exists ? 'Edit Idea' : 'New Idea'}}">
        <form x-data="{
           status: 'pending',
           newLink: '',
@@ -18,6 +21,7 @@
           placeholder="Enter an idea for your title"
           autofocus
           required
+          value='footbar'
         />
           <div class="flex flex-col gap-y-3">
             <label for="status" class="label">Status</label>
