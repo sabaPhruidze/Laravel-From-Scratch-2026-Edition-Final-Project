@@ -138,3 +138,4 @@
 
 - goal is to make much readable the store part of ideacontroller
 - create action folder inside the app folder where I created CreateIdea file and moved store logic to there
+- wrote 2 versions of working the CreateIdea file
