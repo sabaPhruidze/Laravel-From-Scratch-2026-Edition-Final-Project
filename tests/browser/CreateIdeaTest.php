@@ -11,7 +11,9 @@ it('creates a new idea', function (): void {
         ->fill('description', 'An example description')
         ->fill('@new-link', 'https://laracasts.com')
         ->click('@submit-new-link-button')
-        ->fill('@new-link', 'https://laravel.com')
+        ->fill('@new-step', 'Do a thing')
+        ->click('@submit-new-link-button')
+        ->fill('@new-step', 'Do a thing')
         ->click('@submit-new-link-button')
         ->click('Create')
         ->assertPathIs('/ideas');
@@ -23,4 +25,5 @@ it('creates a new idea', function (): void {
     expect($idea->status->value)->toBe('completed');
     expect($idea->description)->toBe('An example description');
     expect($idea->link)->toBe(['https://laracasts.com', 'https://laravel.com']);
+    expect($idea->steps)->toHaveCount(2);
 });
