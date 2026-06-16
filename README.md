@@ -151,4 +151,7 @@
 - IdeaTest file will consist code beforehand to check if there is an issue
 - refactored modal part,because same has to be used in create and change path
 - now in modal it correctly distingusish edit and create idea
-- made sure that input will display the value from attribute
+- made sure that input will display the value from attribute on title, description and on status as well
+- displayed on edit part the image and added remove button (problem how to use form inside the form)
+- added gate on image path removing
+- delete image works

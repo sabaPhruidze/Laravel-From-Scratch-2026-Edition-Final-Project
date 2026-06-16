@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\IdeaController;
+use App\Http\Controllers\IdeaImageController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\StepController;
@@ -14,6 +15,7 @@ Route::middleware('auth')->group(function (): void {
     Route::post('/ideas', [IdeaController::class, 'store'])->name('ideas.store');
     Route::delete('/ideas/{idea}', [IdeaController::class, 'destroy'])->name('ideas.destroy');
     Route::delete('/logout', [SessionsController::class, 'destroy']);
+    Route::delete('/ideas/{idea}/image',[IdeaImageController::class,'destroy'])->name('idea.image.destroy');
     Route::patch('/steps/{step}', [StepController::class, 'update'])->name('step.update');
 });
 
