@@ -7,8 +7,13 @@ it('requires authentification',function(){
     $idea = Idea::factory()->create();
     $this->get(route('ideas.show',$idea))->assertRedirectToRoute('login');
 });
-it('disallows accessing an idea you do not create',function(){
-     $user = User::facotry()->create();
-     $idea = Idea::factory()->create();
-     $this->get(route('ideas.show',$idea))->assertForbidden();
+it('disallows accessing an idea you did not create', function (): void {
+    $user = User::factory()->create();
+    $owner = User::factory()->create();
+
+    $idea = Idea::factory()->for($owner)->create();
+
+    $this->actingAs($user)
+        ->get(route('ideas.show', $idea))
+        ->assertForbidden();
 });
