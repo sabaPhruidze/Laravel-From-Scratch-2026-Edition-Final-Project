@@ -19,7 +19,8 @@ Route::middleware('auth')->group(function (): void {
     Route::delete('/logout', [SessionsController::class, 'destroy']);
     Route::delete('/ideas/{idea}/image', [IdeaImageController::class, 'destroy'])->name('idea.image.destroy');
     Route::patch('/steps/{step}', [StepController::class, 'update'])->name('step.update');
-    Route::get('/profile/edit',[ProfileController::class,'edit'])->name('profile.edit');
+    Route::get('/profile',[ProfileController::class,'edit'])->name('profile.edit');
+    Route::patch('/profile',[ProfileController::class,'update'])->name('profile.update');
 });
 
 Route::middleware('guest')->group(function (): void {
