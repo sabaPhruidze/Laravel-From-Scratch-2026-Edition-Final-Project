@@ -155,3 +155,8 @@
 - displayed on edit part the image and added remove button (problem how to use form inside the form)
 - added gate on image path removing
 - delete image works
+
+# Update Idea Action
+
+- corrected update test
+- updated modal and in updateIdea when there is a new idea step we remove old's and add news again which is simplier than finding which to stay and which to remove

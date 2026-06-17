@@ -7,18 +7,15 @@ it('edits an existing new idea', function (): void {
     $this->actingAs($user = User::factory()->create());
     $idea = Idea::factory()->for($user)->create();
     visit(route('ideas.show',$idea))
-        ->click('@edit-idea-button')
-        ->fill('title', 'Some example Title')
+         ->fill('title', 'Some example Title')
         ->click('@button-status-completed')
         ->fill('description', 'An example description')
         ->fill('@new-link', 'https://laracasts.com')
         ->click('@submit-new-link-button')
         ->fill('@new-step', 'Do a thing')
-        ->click('@submit-new-link-bu tton')
-        ->fill('@new-step', 'Do a thing')
         ->click('@submit-new-link-button')
-        ->click('Create')
-        ->assertPathIs('/ideas');
+        ->click('Update')
+        ->assertRoute('ideas.show',[$idea]);
 
     $idea = $user->ideas()->first();
 
@@ -26,6 +23,6 @@ it('edits an existing new idea', function (): void {
     expect($idea->title)->toBe('Some Example Title');
     expect($idea->status->value)->toBe('completed');
     expect($idea->description)->toBe('An example description');
-    expect($idea->link)->toBe(['https://laracasts.com', 'https://laravel.com']);
+    expect($idea->link)->toBe([$idea->links[0],'https://laracasts.com', 'https://laravel.com']);
     expect($idea->steps)->toHaveCount(2);
 });

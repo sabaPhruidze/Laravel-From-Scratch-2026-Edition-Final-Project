@@ -1,9 +1,11 @@
 <?php
 
+use App\Models\Idea;
 use App\Models\User;
 
 it('creates a new idea', function (): void {
     $this->actingAs($user = User::factory()->create());
+    $idea = Idea::factory()->for($user)->create();
     visit('/ideas')
         ->click('@create-idea-button')
         ->fill('title', 'Some example Title')
@@ -16,7 +18,7 @@ it('creates a new idea', function (): void {
         ->fill('@new-step', 'Do a thing')
         ->click('@submit-new-link-button')
         ->click('Create')
-        ->assertPathIs('/ideas');
+        ->assertPathIs('ideas/show', [$idea]);
 
     $idea = $user->ideas()->first();
 

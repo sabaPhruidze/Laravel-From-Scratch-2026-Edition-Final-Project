@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\actions\CreateIdea;
+use App\actions\UpdateIdea;
 use App\Http\Requests\IdeaRequest;
-use App\Http\Requests\UpdateIdeaRequest;
 use App\IdeaStatus;
 use App\Models\Idea;
 use Illuminate\Http\Request;
@@ -57,7 +57,8 @@ class IdeaController extends Controller
      */
     public function show(Idea $idea)
     {
-        Gate::authorize('workWith',$idea);
+        Gate::authorize('workWith', $idea);
+
         return view('ideas.show', [
             'idea' => $idea,
         ]);
@@ -68,15 +69,18 @@ class IdeaController extends Controller
      */
     public function edit(Idea $idea)
     {
-         Gate::authorize('workWith',$idea);
+        Gate::authorize('workWith', $idea);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(IdeaRequest $request, Idea $idea)
+    public function update(IdeaRequest $request, Idea $idea, UpdateIdea $action)
     {
-        Gate::authorize('workWith',$idea);
+        Gate::authorize('workWith', $idea);
+
+        $action->handle($request->safe()->all(), $idea);
+        return back()->with('success','Ideas updated');
         // update the idate
         // upload the image
     }
@@ -86,7 +90,7 @@ class IdeaController extends Controller
      */
     public function destroy(Idea $idea)
     {
-         Gate::authorize('workWith',$idea);
+        Gate::authorize('workWith', $idea);
         $idea->delete();
 
         return to_route('ideas.index');
