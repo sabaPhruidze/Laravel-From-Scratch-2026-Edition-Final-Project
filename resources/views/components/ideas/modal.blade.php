@@ -75,7 +75,7 @@
           <div>
             <fieldset class="space-y-3">
               <legend class="label">Actionable Steps</legend>
-              <template x-for="(step,index) in steps" :key="step.id">
+              <template x-for="(step,index) in steps" :key="step.id || index">
                 <div class="flex gap-x-2 items-center">
                   <input :name="`steps[${index}][description]`" x-model="step.description" class="input">
                   <input type="hidden" :name="`steps[${index}][completed]`" x-model="step.description" class="input" readonly>
