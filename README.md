@@ -161,3 +161,8 @@
 - corrected update test
 - updated modal and in updateIdea when there is a new idea step we remove old's and add news again which is simplier than finding which to stay and which to remove
 - moved ideaTest into new folder idea and created 2 similar idea test for create and for update
+
+# Edit Your Profile
+
+- created new route /profile/edit
+- Moved register but changed few things
