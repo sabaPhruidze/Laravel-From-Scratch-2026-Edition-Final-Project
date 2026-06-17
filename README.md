@@ -166,3 +166,5 @@
 
 - created new route /profile/edit
 - Moved register but changed few things
+- Currently will display current values like current name and email
+- password has to be done differently since it automatically uses hashing
