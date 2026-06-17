@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Password;
+use Illuminate\Validation\Rules\Password;
 use Illuminate\Validation\Rule;
 
 class ProfileController extends Controller
@@ -17,10 +17,17 @@ class ProfileController extends Controller
     }
     public function update(Request $request)
     {
+        $user= Auth::user();
          $request->validate([
             'name' => ['string', 'min:3', 'max:255'],
-            'email' => ['email', 'max:255', Rule::unique('users', 'email')->ignore(Auth::id())],
+            'email' => ['email', 'max:255', Rule::unique('users', 'email')->ignore($user->id)],
             'password' => ['nullable',Password::defaults()],
         ]);
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password ?? $user->password,
+        ]);
+        return redirect()->route('profile.edit')->with('success','Profile Updated');
     }
 }

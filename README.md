@@ -169,3 +169,4 @@
 - Currently will display current values like current name and email
 - password has to be done differently since it automatically uses hashing
 - added update and edit methods and changed the rpoute
+- wrote the controller and validation for update password
