@@ -170,3 +170,7 @@
 - password has to be done differently since it automatically uses hashing
 - added update and edit methods and changed the rpoute
 - wrote the controller and validation for update password
+
+# Deploy And Then Implement A Feature Request
+
+- https://laravel.com/forge

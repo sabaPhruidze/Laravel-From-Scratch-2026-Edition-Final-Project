@@ -3,14 +3,14 @@
 use App\Models\Idea;
 use App\Models\User;
 
-it('shows the initial input state',function(){
-      $this->actingAs($user = User::factory()->create());
+it('shows the initial input state', function (): void {
+    $this->actingAs($user = User::factory()->create());
     $idea = Idea::factory()->for($user)->create();
-     visit(route('ideas.show',$idea))
-     ->click('@edit-idea-button')
-     ->assertValue('title',$idea->title)
-     ->assertValue('description',$idea->description)
-     ->assertValue('status',$idea->status);
+    visit(route('ideas.show', $idea))
+        ->click('@edit-idea-button')
+        ->assertValue('title', $idea->title)
+        ->assertValue('description', $idea->description)
+        ->assertValue('status', $idea->status);
 });
 
 it('creates a new idea', function (): void {

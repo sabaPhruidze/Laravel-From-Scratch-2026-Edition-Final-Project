@@ -6,8 +6,8 @@ use App\Models\User;
 it('edits an existing new idea', function (): void {
     $this->actingAs($user = User::factory()->create());
     $idea = Idea::factory()->for($user)->create();
-    visit(route('ideas.show',$idea))
-         ->fill('title', 'Some example Title')
+    visit(route('ideas.show', $idea))
+        ->fill('title', 'Some example Title')
         ->click('@button-status-completed')
         ->fill('description', 'An example description')
         ->fill('@new-link', 'https://laracasts.com')
@@ -15,7 +15,7 @@ it('edits an existing new idea', function (): void {
         ->fill('@new-step', 'Do a thing')
         ->click('@submit-new-link-button')
         ->click('Update')
-        ->assertRoute('ideas.show',[$idea]);
+        ->assertRoute('ideas.show', [$idea]);
 
     $idea = $user->ideas()->first();
 
@@ -23,6 +23,6 @@ it('edits an existing new idea', function (): void {
     expect($idea->title)->toBe('Some Example Title');
     expect($idea->status->value)->toBe('completed');
     expect($idea->description)->toBe('An example description');
-    expect($idea->link)->toBe([$idea->links[0],'https://laracasts.com', 'https://laravel.com']);
+    expect($idea->link)->toBe([$idea->links[0], 'https://laracasts.com', 'https://laravel.com']);
     expect($idea->steps)->toHaveCount(2);
 });

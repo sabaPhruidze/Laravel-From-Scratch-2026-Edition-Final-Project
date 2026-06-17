@@ -19,9 +19,9 @@ class UpdateIdea
 
         DB::transaction(function () use ($idea, $data, $attributes): void {
             $idea->update($data);
-           $idea->steps()->delete();
+            $idea->steps()->delete();
 
-           $idea->steps()->createMany($attributes('steps') ?? []);
+            $idea->steps()->createMany($attributes('steps') ?? []);
         });
     }
 }

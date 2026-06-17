@@ -80,7 +80,8 @@ class IdeaController extends Controller
         Gate::authorize('workWith', $idea);
 
         $action->handle($request->safe()->all(), $idea);
-        return back()->with('success','Ideas updated');
+
+        return back()->with('success', 'Ideas updated');
         // update the idate
         // upload the image
     }

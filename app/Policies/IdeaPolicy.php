@@ -10,7 +10,7 @@ class IdeaPolicy
     /**
      * Determine whether the user can view any models.
      */
-    public function workWith(User $user,Idea $idea): bool
+    public function workWith(User $user, Idea $idea): bool
     {
         return $idea->user()->is($user);
     }
